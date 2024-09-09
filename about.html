@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BTL Agency Website</title>
+
+    <style>
+      header {
+        background: black;
+        color: white;
+        margin-left: auto;
+      }
+
+      header a {
+        color: white;
+      }
+
+      nav {
+        margin-left: auto;
+        margin-right: 5%;
+      }
+
+      nav ul {
+        list-style-type: none;
+      }
+      
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+        gap: 1rem;
+        border: 1rem;
+      }
+
+      ul {
+        list-style-type: none;
+      }
+
+      .row {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="row">
+      <a href="/" aria-label="Home"></a>
+      <nav>
+        <ul class="row">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <ul class="grid column-lg">
+        <li>
+          <h2>Levi</h2>
+          <img 
+            width="200"
+            height="200"
+            src="/data/team/stick_01.jpg"
+            alt="Levi CTO profile picture"
+          >
+        <div class="row"><h3>Job Title:</h3><p>CEO</p></div>
+        <h3>About</h3>
+        <p>I am great.</p>
+        </li>
+        <li>
+          <h2>Tania</h2>
+          <img 
+            width="200"
+            height="200"
+            src="/data/team/stick_02.jpg"
+            alt="Tania CEO profile picture"
+          >
+
+        <div class="row"><h3>Job Title:</h3><p>CEO</p></div>
+        <h3>About</h3>
+          <p>I am also great.</p>
+        </li>
+        <li>
+          <h2>Ben</h2>
+          <img 
+            width="200"
+            height="200"
+            src="/data/team/stick_03.jpg"
+            alt="Ben CFO profile picture"
+          >
+        <div class="row"><h3>Job Title:</h3><p>CFO</p></div>
+        <h3>About</h3>
+          <p>Not so bad either.</p>
+        </li>
+      </div>
+    </main>
+  </body>
+</html>
