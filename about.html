@@ -62,9 +62,7 @@
               </div>
               <h3>About</h3>
               <p>${person.about}</p>
-              <button>
-              Contact ${person.name}
-              </button>
+              <button onclick="window.location.href = 'contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
             `;
             grid.appendChild(listItem);
           });
