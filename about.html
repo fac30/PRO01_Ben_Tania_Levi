@@ -55,45 +55,46 @@
       </nav>
     </header>
     <main>
-      <ul class="grid column-lg">
-        <li>
-          <h2>Levi</h2>
-          <img 
-            width="200"
-            height="200"
-            src="/data/team/stick_01.jpg"
-            alt="Levi CTO profile picture"
-          >
-        <div class="row"><h3>Job Title:</h3><p>CEO</p></div>
-        <h3>About</h3>
-        <p>I am great.</p>
-        </li>
-        <li>
-          <h2>Tania</h2>
-          <img 
-            width="200"
-            height="200"
-            src="/data/team/stick_02.jpg"
-            alt="Tania CEO profile picture"
-          >
-
-        <div class="row"><h3>Job Title:</h3><p>CEO</p></div>
-        <h3>About</h3>
-          <p>I am also great.</p>
-        </li>
-        <li>
-          <h2>Ben</h2>
-          <img 
-            width="200"
-            height="200"
-            src="/data/team/stick_03.jpg"
-            alt="Ben CFO profile picture"
-          >
-        <div class="row"><h3>Job Title:</h3><p>CFO</p></div>
-        <h3>About</h3>
-          <p>Not so bad either.</p>
-        </li>
-      </div>
+      <ul id="team-grid" class="grid column-lg">
+        <!-- user grid here -->
+      </ul>
     </main>
+    <script>
+      async function loadTeam() {
+        try {
+          const response = await fetch('/data/team/people.json');
+          const data = await response.json();
+          const grid = document.getElementById('team-grid');
+
+          data.persons.forEach(person => {
+            const listItem = document.createElement('li');
+
+            listItem.innerHTML = `
+              <h2>${person.name}</h2>
+              <img 
+                width="200"
+                height="200"
+                src="${person.img}" 
+                alt="${person.name} profile picture"
+              >
+              <div class="row">
+                <h3>Job Title:</h3>
+                <p>${person.position}</p>
+              </div>
+              <h3>About</h3>
+              <p>${person.about}</p>
+              <button>
+              Contact ${person.name}
+              </button>
+            `;
+            grid.appendChild(listItem);
+          });
+        } catch (error) {
+          console.error('Error fetching or displaying the team members:', error);
+        }
+      }
+
+      window.onload = loadTeam;
+    </script>
   </body>
 </html>
