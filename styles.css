@@ -23,6 +23,12 @@ body {
 
 }
 
+.home-container {
+    margin-left: auto;
+}
+
+
+
 main {
     text-align: center;
     display: inline-block;
