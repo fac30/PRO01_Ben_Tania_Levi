@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BTL Agency Website</title>
     <link href="styles.css" rel="stylesheet"/>
+    <link href="contact.css" rel="stylesheet"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -58,6 +59,19 @@
     </div>
     <button class="form-submit" type="'submit">Submit Form</button>
     </section>
-    <link rel="stylesheet" type="text/css" href="contact.css" />
+    <link rel="stylesheet" href="contact-us/contact.css" />
+    <script>
+let params = new URLSearchParams(document.location.search);
+let name = params.get("name");
+const checkbox = document.getElementById('dropbox')
+if (name) {
+            for (let i = 0; i < dropbox.options.length; i++) {
+                if (dropbox.options[i].value === name) {
+                    dropbox.selectedIndex = i;
+                    break;
+                }
+            }
+        }
+        </script>
   </body>
 </html>

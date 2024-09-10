@@ -15,7 +15,7 @@
       <nav>
         <ul class="row">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li><a href="contact us/contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -33,5 +33,41 @@
         Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>.
       </p>
     </footer>
+    <script>
+
+async function loadTeam() {
+            try {
+                const response = await fetch('/data/team/people.json');
+                const data = await response.json();
+                const grid = document.getElementById('team-grid');
+
+                data.persons.forEach(person => {
+                    const listItem = document.createElement('li');
+
+                    listItem.innerHTML = `
+                        <h2>${person.name}</h2>
+                        <img
+                            width="200"
+                            height="200"
+                            src="${person.img}"
+                            alt="${person.name} profile picture"
+                        >
+                        <div class="row">
+                            <h3>Job Title:</h3>
+                            <p>${person.position}</p>
+                        </div>
+                        <h3>About</h3>
+                        <p>${person.about}</p>
+                        <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
+                    `;
+                    grid.appendChild(listItem);
+                });
+            } catch (error) {
+                console.error('Error fetching or displaying the team members:', error);
+            }
+        }
+        window.onload = loadTeam;
+
+    </script>
   </body>
 </html>
