@@ -1,0 +1,33 @@
+{
+  "persons": [
+    {
+      "name": "Levi",
+      "position": "CTO",
+      "about": "I am great.",
+      "img": "/data/team/stick_01.jpg",
+      "email": "levi@email.com"
+    },
+    {
+      "name": "Tania",
+      "position": "CEO",
+      "about": "I am also great.",
+      "img": "/data/team/stick_02.jpg",
+      "email": "tania@email.com"
+    },
+    {
+      "name": "Ben",
+      "position": "CFO",
+      "about": "Not so bad either.",
+      "img": "/data/team/stick_03.jpg",
+      "email": "ben@email.com"
+    }, 
+    {
+      "name": "Someone Else", 
+      "position": "Head of Amazing Dept",
+      "about": "Legend", 
+      "img": "/data/team/stick_03.jpg",
+      "email": "email@email.com"
+    } 
+  ]
+}
+
