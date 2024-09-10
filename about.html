@@ -4,55 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BTL Agency Website</title>
-
-    <style>
-      main {
-        text-align: center;
-        display: inline-block;
-        
-      }
-      header {
-        background: black;
-        color: white;
-        margin-left: auto;
-      }
-
-      header a {
-        color: white;
-      }
-
-      nav {
-        margin-left: auto;
-        margin-right: 5%;
-      }
-
-      nav ul {
-        list-style-type: none;
-      }
-      
-      .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
-        gap: 1rem;
-        border: 1rem;
-      }
-
-      ul {
-        list-style-type: none;
-      }
-
-      .row {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-
-      footer {
-        margin-left: auto;
-        margin-top: auto;
-      }
-    </style>
+    <link href="styles.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <header class="row">
@@ -76,9 +31,13 @@
         <!-- user grid here -->
       </ul>
     </main>
+
     <footer>
-      <p>Here is a footer</p>
+      <p>
+        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>.
+      </p>
     </footer>
+
     <script>
       async function loadTeam() {
         try {
@@ -113,8 +72,8 @@
           console.error('Error fetching or displaying the team members:', error);
         }
       }
-
       window.onload = loadTeam;
     </script>
+
   </body>
 </html>
