@@ -61,11 +61,12 @@ flex-direction: column;
     border-radius: 0.4rem;
 }
 
-.dropbtn{ 
-    background-color: aliceblue;
-    color: black;
-    padding: 16px;
-    font-size: 16px;
-    border: black;
-    cursor: pointer;
+#dropbox {
+    width: 200px;
 }
+
+.form-label{
+   font: monospace;
+
+}
+
