@@ -8,12 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <header class="row">
-      <div class="row_logo">
-        <a href="#home" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
-      </div>     
+      <a href="/" aria-label="Home" style="margin-left:20px;">BTL Home</a>
       <nav>
         <ul class="row">
           <li><a href="/about.html">About Us</a></li>
@@ -39,54 +38,61 @@
       </ul>
     </main>
 
-    <footer class="footer-container">
+    <footer>
       <p>
-        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>
+        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>.
       </p>
-      <a href="#home" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
-      <div class="address-footer">
-        <h3>Our office:</h3>
-        <p>113-115 Fonthill Rd,</p>
-        <p>Finsbury Park,</p>
-        <p>Londo</p>
-        <p>N4 3HH</p>
-      </div>
     </footer>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/supabase.min.js"></script> -->
+    <!-- <script src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
+    <!-- <script src="https://unpkg.com/@supabase/supabase-js@2"></script> -->
+    <script> 
+      // import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm';
+      // import { createClient } from 'jsr:@supabase/supabase-js@2'
+      // import { createClient } from '@supabase/supabase-js'
+      document.addEventListener("DOMContentLoaded", function() {
+        const { createClient } = window.supabase;
+        const supabaseUrl = 'https://ijovqdpyghuiqxlzwbmx.supabase.co';
+        const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imlqb3ZxZHB5Z2h1aXF4bHp3Ym14Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjYwNDYzNDksImV4cCI6MjA0MTYyMjM0OX0.z6K_07lY1x2G5jO9hGP7Xckb4wpuZBCgQgWCz6eiXEk'; // Replace with your Supabase anon key
+        const supabase = createClient(supabaseUrl, supabaseKey);
+        async function loadTeam() {
+          try {
+            let { data: team_public, error } = await supabase
+              .from('team_public')
+              .select('*')
+            // const { data, error } = await supabase
+            //   .from('team_public')
+            //   .select('*'); 
+            // if (error) throw error;
+            const grid = document.getElementById('team-grid');
+            
+            team_public.forEach(person => {
+              const listItem = document.createElement('li');
 
-    <script>
-      async function loadTeam() {
-        try {
-          const response = await fetch('/data/team/people.json');
-          const data = await response.json();
-          const grid = document.getElementById('team-grid');
-
-          data.persons.forEach(person => {
-            const listItem = document.createElement('li');
-
-            listItem.innerHTML = `
-              <h2>${person.name}</h2>
-              <img 
-                width="200"
-                height="200"
-                src="${person.img}" 
-                alt="${person.name} profile picture"
-              >
-              <div class="row">
-                <h3>Job Title:</h3>
-                <p>${person.position}</p>
-              </div>
-              <h3>About</h3>
-              <p>${person.about}</p>
-              <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
-            `;
-            grid.appendChild(listItem);
-          });
-        } catch (error) {
-          console.error('Error fetching or displaying the team members:', error);
-        }
-      }
-      window.onload = loadTeam;
+              listItem.innerHTML = `
+                <h2>${person.name}</h2>
+                <img 
+                  width="200"
+                  height="200"
+                  src="${person.img}" 
+                  alt="${person.name} profile picture"
+                >
+                <div class="row">
+                  <h3>Job Title:</h3>
+                  <p>${person.position}</p>
+                </div>
+                <h3>About</h3>
+                <p>${person.about}</p>
+                <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
+              `;
+              grid.appendChild(listItem);
+            });
+          } catch (error) {
+            console.error('Error fetching team members:', error);
+          }
+        }; 
+        loadTeam()
+      }) 
     </script>
-
   </body>
 </html>
