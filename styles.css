@@ -1,41 +1,39 @@
 /* Colours:
 Orange: #fa8510 - header
 NavyBlue: #215b79 - footer
-AnotherBlue: #B6CAD0 - sections
-Yellow: #fbcc07 - sections
+AnotherBlue: #B6CAD0 - sections, buttons
+Yellow: #fbc304 - sections, buttons
 Light colour for background: #f8f1e2
 Black for text: #0e0c08
 */
 
-@media (prefers-reduced-motion: no-preference) {
-    * {
-      scroll-behavior: smooth;
-    }
-}
 
+/*common for all pages*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    background-color:#f8f1e2;
     font-family: 'Montserrat', sans-serif;
     font-weight: 300;
     font-style: normal;
-    margin: 0;
-    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
-
-.home-container {
-    margin-left: auto;
-}
-
-
 
 main {
-    text-align: center;
-    display: inline-block;
+    flex: 1; /* This will make the main take up the remaining space */
+    background-color: #f8f1e2;
+    padding: 20px;
 }
 header {
     background: #fa8510;
-    margin-left: auto;
+    padding: 20px;
+    text-align: center;
 }
+
 header a {
     color: #0e0c08;
 }
@@ -45,6 +43,53 @@ nav {
 }      
 nav ul {
     list-style-type: none;
+}
+
+/*button*/
+button {
+    background-color: #fbc304;
+    border: none;
+    border-radius: 10px;
+    color: #0e0c08;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 1;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+}
+button:hover {opacity: 0.6}
+
+
+/*home page*/
+.home-container {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+    align-items: center;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items:center
+}
+.content h1 {
+    margin-bottom: 20px;
+}
+
+.content p {
+    margin-bottom: 20px;
+}
+
+/*about page*/
+.about-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 .grid {
     display: grid;
@@ -66,10 +111,7 @@ ul {
 footer {
     background-color:#215b79;
     text-align: center;
-    width: 100%;
     padding: 20px;
-    position: absolute;
-
 }
 footer p {
     color: whitesmoke;
