@@ -42,7 +42,7 @@
       <p>
         Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>
       </p>
-      <a href="#home" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
+      <a href="/index.html" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
       <div class="address-footer">
         <h3>Our office:</h3>
         <p>113-115 Fonthill Rd,</p>
@@ -63,20 +63,22 @@
             const listItem = document.createElement('li');
 
             listItem.innerHTML = `
-              <h2>${person.name}</h2>
-              <img 
-                width="200"
-                height="200"
-                src="${person.img}" 
-                alt="${person.name} profile picture"
-              >
-              <div class="row">
-                <h3>Job Title:</h3>
-                <p>${person.position}</p>
-              </div>
-              <h3>About</h3>
-              <p>${person.about}</p>
-              <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
+              <div class='grid-list'>
+                <h2>${person.name}</h2>
+                <img 
+                  width="200"
+                  height="200"
+                  src="${person.img}" 
+                  alt="${person.name} profile picture"
+                >
+                <div class="grid-list-row">
+                  <h3>Job Title: </h3>
+                  <p>${person.position}</p>
+                </div>
+                <h3>About</h3>
+                <p>${person.about}</p>
+                <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
+              </div>             
             `;
             grid.appendChild(listItem);
           });

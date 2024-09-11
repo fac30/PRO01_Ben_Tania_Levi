@@ -76,6 +76,12 @@ button {
 }
 button:hover {opacity: 0.6}
 
+.row {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
 
 /*home page*/
 .home-container {
@@ -129,22 +135,37 @@ button:hover {opacity: 0.6}
 }
 
 .grid {
-    display: grid;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    /*display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: 1rem;
-    border: 1rem;
+    border: 1rem;*/
 }
-     
 ul {
     list-style-type: none;
 }
-.row {
+.grid-list {
     display: flex;
-    gap: 2rem;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.grid-list > * {
+    padding-bottom: 20px; /* Adds bottom padding 20px to each item */
+}
+
+.grid-list-row {
+    display: flex;
+    gap: 0.5rem;    
     flex-wrap: wrap;
     align-items: center;
-    
-}     
+}
+
+     
 
 /*footer*/
 .footer-container {
