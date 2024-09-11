@@ -11,11 +11,14 @@
   </head>
   <body>
     <header class="row">
-      <a href="/" aria-label="Home" style="margin-left:20px;">BTL Home</a>
+      <div class="row_logo">
+        <a href="#home" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
+ 
+      </div>     
       <nav>
         <ul class="row">
           <li><a href="/about.html">About Us</a></li>
-          <li><a href="contact us/contact.html">Contact</a></li>
+          <li><a href="contact-us/contact.html">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -28,11 +31,20 @@
     
     </main>
 
-    <footer>
+    <footer class="footer-container">
       <p>
-        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>.
+        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>
       </p>
+      <a href="#home" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
+      <div class="address-footer">
+        <h3>Our office:</h3>
+        <p>113-115 Fonthill Rd,</p>
+        <p>Finsbury Park,</p>
+        <p>Londo</p>
+        <p>N4 3HH</p>
+      </div>
     </footer>
+
     <script>
 
 async function loadTeam() {
