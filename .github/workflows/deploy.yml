@@ -29,16 +29,22 @@ jobs:
       - name: Verify AWS Identity (Optional for debugging)
         run: aws sts get-caller-identity
 
-      - name: SSH into EC2 and run git pull
+      - name: Setup SSH key for EC2 access
         env:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
         run: |
-          mkdir -p ~/.sshh 
+          mkdir -p ~/.ssh
+          
           echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          
           chmod 600 ~/.ssh/id_rsa
 
-          # Run git pull on the EC2 instance
-          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} "
+          echo "Host *" > ~/.ssh/config
+          echo "  StrictHostKeyChecking no" >> ~/.ssh/config
+          
+      - name: SSH into EC2 and run git pull
+        run: |
+          ssh ec2-user@${{ secrets.EC2_HOST }} "
             cd ${{ secrets.EC2_PATH }} &&
             git pull origin main
           "
