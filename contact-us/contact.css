@@ -1,3 +1,12 @@
+/* Colours:
+Orange: #fa8510 - header
+NavyBlue: #215b79 - footer
+AnotherBlue: #B6CAD0 - sections, buttons
+Yellow: #fbc304 - sections, buttons
+Light colour for background: #f8f1e2
+Black for text: #0e0c08
+*/
+
 .contact-section {
     text-align: center;
     width: 100%;
@@ -12,38 +21,45 @@
 }
 
 .contact-title {
-    font-family: monospace ;
     font-size: 1.9rem;
     line-height: 2.25rem;
     font-weight: 700;
 }
 
 .contact-description {
-    color: rgb(107 114 128);
-    font-family: monospace;
+    color: #0e0c08;
+}
+
+.label {
+    justify-content: flex-start;
 }
 
 .form-group-container {
     display: grid;
     gap: 1rem;
     margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .form-group {
-display: flex;
-flex-direction: column;
+    display: flex;
+    flex-direction: column;
+}
+.form-group > *:first-child {
+    padding-bottom: 10px;
 }
 
 .form-input,
 .form-textarea {
     padding: 0.5rem;
-    border: 1px solid #e5e7eb;
+    border: 1px solid #f8f1e2;
     display: flex;
     height: 2.5rem;
     width: 100%;
     border-radius: 0.4rem;
     font-size: 0.9rem;
     line-height: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .form-textarea {
@@ -52,19 +68,30 @@ flex-direction: column;
 
 .form-submit{
     width: 100%;
-    margin-top: 1.2rem;
-    background-color: #fbcc07;
-    color: aliceblue;
     padding: 13px 5px;
-    border-radius: 0.4rem;
+    border-radius: 10px;
+}
+.dropdown {
+    display: flex;
+    flex-direction: column;
+}
+.dropdown > *:first-child {
+    padding-bottom: 10px;
 }
 
 #dropbox {
     width: 200px;
+    font-family: 'Montserrat', sans-serif;
+}
+#checkbox {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
-.form-label{
-   font: monospace;
-
+.form-label {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 

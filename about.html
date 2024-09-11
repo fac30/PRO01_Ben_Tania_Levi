@@ -12,7 +12,9 @@
   </head>
   <body>
     <header class="row">
-      <a href="/" aria-label="Home" style="margin-left:20px;">BTL Home</a>
+      <div class="row_logo">
+        <a href="/index.html" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
+      </div>     
       <nav>
         <ul class="row">
           <li><a href="/about.html">About Us</a></li>
@@ -22,15 +24,14 @@
     </header>
     <main>
       <div class="about-container">
-        <div>
+        <div class="about-content">
           <h1>Meet the BTL Team</h1>
           <p>At BTL, we are passionate about crafting innovative software solutions that drive our clients' success. Our diverse and talented team of developers, designers, and consultants bring years of experience across industries, combining technical expertise with a deep understanding of business needs. Every project is a partnership, and we pride ourselves on our collaborative approach, ensuring that our solutions are tailored to meet your unique challenges.</p>
     
           <p>Our team is driven by a shared commitment to excellence, problem-solving, and staying ahead of technology trends. Whether you're looking to build custom software, optimize systems, or drive digital transformation, our experts are here to help you navigate every step of the way.</p>
     
-          <p>Get to know the people behind our success:</p>
+          <p id="text-emphasise">Get to know the people behind our success:</p>
         </div>
-
       </div>
 
       <ul id="team-grid" class="grid column-lg">
@@ -40,8 +41,16 @@
 
     <footer>
       <p>
-        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>.
+        Made by <a href="https://github.com/fac30/PRO01_Ben_Tania_Levi">BTL Team</a>
       </p>
+      <a href="/index.html" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
+      <div class="address-footer">
+        <h3>Our office:</h3>
+        <p>113-115 Fonthill Rd,</p>
+        <p>Finsbury Park,</p>
+        <p>Londo</p>
+        <p>N4 3HH</p>
+      </div>
     </footer>
     <!-- <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.0.0/dist/supabase.min.js"></script> -->
     <!-- <script src = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script> -->
@@ -70,20 +79,22 @@
               const listItem = document.createElement('li');
 
               listItem.innerHTML = `
-                <h2>${person.name}</h2>
-                <img 
-                  width="200"
-                  height="200"
-                  src="${person.img}" 
-                  alt="${person.name} profile picture"
-                >
-                <div class="row">
-                  <h3>Job Title:</h3>
-                  <p>${person.position}</p>
+                <div class='grid-list'>
+                  <h2>${person.name}</h2>
+                  <img 
+                    width="200"
+                    height="200"
+                    src="${person.img}" 
+                    alt="${person.name} profile picture"
+                  >
+                  <div class="grid-list-row">
+                    <h3>Job Title:</h3>
+                    <p>${person.position}</p>
+                  </div>
+                  <h3>About</h3>
+                  <p>${person.about}</p>
+                  <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
                 </div>
-                <h3>About</h3>
-                <p>${person.about}</p>
-                <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
               `;
               grid.appendChild(listItem);
             });
