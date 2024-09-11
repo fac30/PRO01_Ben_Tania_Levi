@@ -22,8 +22,12 @@ document.addEventListener('DOMContentLoaded', () => {
  
  // When the user clicks the button, open the modal 
     openBtn.addEventListener("click", function() {
-         modal.classList.remove("hide");
-    });
+	if (form.checkValidity()) {
+		modal.classList.remove("hide");
+	} else {
+		form.reportValidity();
+	}
+   });
  
     modal.addEventListener("click", (e) => {
        closeModal(e, true);

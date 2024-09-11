@@ -37,25 +37,29 @@
               <label for="name"
                 class="form-label">Name</label>
               <input type="text" name="name" id="name" autocomplete="name" placeholder="Your name" class="form-input" required></input>
+              <span id="name-error" class="error-message"></span>
             </div>
       
             <div class="form-group">
                 <label for="Email"
                   class="form-label">Email</label>
                 <input type="text" name="email" id="Email" autocomplete="email" placeholder="Your email" class="form-input" required></input>
-            </div>
+                <span id="email-error" class="error-message"></span>
+              </div>
       
             <div class="form-group">
                 <label for="Phone number"
                 class="form-label">Phone Number</label>
                 <input type="text" name="Phone number" id="Phone number" autocomplete="number" placeholder="+(44) 7939 123456" class="form-input" required></input>
-            </div>
+                <span id="number-error" class="error-message"></span>
+              </div>
       
             <div class="form-group">
                 <label for="Assist"
                 class="form-label">What can we assist you with?</label>
                 <textarea type="text" name="Assist" id="Assist" autocomplete="message" placeholder="We're listening..." class="form-textarea" required></textarea>
-            </div>
+                <span id="assist-error" class="error-message"></span>
+              </div>
       
             <div class="dropdown">
                 <label for="checkbox"
@@ -76,9 +80,9 @@
             <div class="modal hide">
               <div class="modal-content">
                   <span class="close">&times;</span>
-                  <p>Message received! 🎉 </p>
-                  <p>One of our awesome devs will be in touch soon to discuss how we can help you out. Until then, sit back, relax, and think about all the code you won’t have to write. 😊</p>
-                  <p>If you need us before then, you can reach us at support@btlagency.co.uk.</p>
+                  <h3>Message received! 🎉 </h3>
+                  <p>One of our awesome devs will be in touch soon to discuss how we can help you out.</p>
+                  <p>If you need us before then, you can reach us at <strong>support@btlagency.co.uk</strong>.</p>
               </div> 
           </div>
         </form>
