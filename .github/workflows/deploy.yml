@@ -1,33 +1,45 @@
-name: Deploy to EC2
+name: Trigger git pull on EC2
 
 on:
   push:
     branches:
-      - main 
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  AWS_REGION: "eu-west-2" 
+
+permissions:
+  id-token: write  # Required for requesting the JWT
+  contents: read   # Required for actions/checkout
 
 jobs:
-  deploy:
+  GitPullOnEC2:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout the repository
-      uses: actions/checkout@v2
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1.7.0
+        with:
+          role-to-assume: arn:aws:iam::024830067461:role/Pro01_deployment
+          role-session-name: GitHub_to_AWS_via_FederatedOIDC
+          aws-region: ${{ env.AWS_REGION }}
 
-    - name: Install SSH Client
-      run: sudo apt-get install -y sshpass
+      - name: Verify AWS Identity (Optional for debugging)
+        run: aws sts get-caller-identity
 
-    - name: Copy files to EC2
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-      run: |
-        mkdir -p ~/.ssh
-        echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+      - name: SSH into EC2 and run git pull
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+        run: |
+          mkdir -p ~/.sshh 
+          echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
-        # Copy the website files to the EC2 instance using rsync over SSH
-        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./ ec2-user@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}
-      
-    - name: Restart Apache HTTPD on EC2
-      run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} "sudo systemctl restart httpd"
+          # Run git pull on the EC2 instance
+          ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} "
+            cd ${{ secrets.EC2_PATH }} &&
+            git pull origin main
+          "
 
