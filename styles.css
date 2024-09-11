@@ -64,15 +64,14 @@ button {
     border: none;
     border-radius: 10px;
     color: #0e0c08;
-    padding: 16px 32px;
-    text-align: center;
-    font-size: 16px;
-    margin: 4px 2px;
-    opacity: 1;
-    transition: 0.3s;
+    padding: 12px 26px;
+    font-size: 15px;
+    /*margin: 4px 2px;*/
+    /*opacity: 1;*/
+    /*transition: 0.3s;
     display: inline-block;
     text-decoration: none;
-    cursor: pointer;
+    cursor: pointer;*/
 }
 button:hover {opacity: 0.6}
 
@@ -154,8 +153,8 @@ ul {
     justify-content: space-between;
     align-items: center;
 }
-.grid-list > * {
-    padding-bottom: 20px; /* Adds bottom padding 20px to each item */
+.grid-list > *:not(:last-child) {
+    padding-bottom: 20px; /* Not Add bottom padding 20px to the last item */
 }
 
 .grid-list-row {
