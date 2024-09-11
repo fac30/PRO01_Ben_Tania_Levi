@@ -6,6 +6,7 @@
     <title>BTL Agency Website</title>
     <link href="/styles.css" rel="stylesheet"/>
     <link href="contact.css" rel="stylesheet"/>
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -31,54 +32,57 @@
             </p>
         </div>
     
-      <form class = "form-group-container">
-          <div class = "form-group">
-            <label for="name"
-              class="form-label">Name</label>
-            <input type="text" name="name" id="name" autocomplete="name" placeholder="Your name" class="form-input"></input>
+        <form class = "form-group-container">
+            <div class = "form-group">
+              <label for="name"
+                class="form-label">Name</label>
+              <input type="text" name="name" id="name" autocomplete="name" placeholder="Your name" class="form-input" required></input>
+            </div>
+      
+            <div class="form-group">
+                <label for="Email"
+                  class="form-label">Email</label>
+                <input type="text" name="email" id="Email" autocomplete="email" placeholder="Your email" class="form-input" required></input>
+            </div>
+      
+            <div class="form-group">
+                <label for="Phone number"
+                class="form-label">Phone Number</label>
+                <input type="text" name="Phone number" id="Phone number" autocomplete="number" placeholder="+(44) 7939 123456" class="form-input" required></input>
+            </div>
+      
+            <div class="form-group">
+                <label for="Assist"
+                class="form-label">What can we assist you with?</label>
+                <textarea type="text" name="Assist" id="Assist" autocomplete="message" placeholder="We're listening..." class="form-textarea" required></textarea>
+            </div>
+      
+            <div class="dropdown">
+                <label for="checkbox"
+                class="form-label">With whom would you like to be in touch with?</label>
+                <form id="checkbox">
+                  <select name="checkbox" id="dropbox">
+                    <option value="...">...</option>
+                    <option value="Tania">Tania</option>
+                    <option value="Ben">Ben</option>
+                    <option value="Levi">Levi</option>
+                  </select>
+                </form>
+            </div>
+
+            <button class="form-submit" type="button" id="submitBtn">Submit</button>
+            <!-- The Modal Box-->
+            <!-- The Modal -->
+            <div class="modal hide">
+              <div class="modal-content">
+                  <span class="close">&times;</span>
+                  <p>Message received! 🎉 </p>
+                  <p>One of our awesome devs will be in touch soon to discuss how we can help you out. Until then, sit back, relax, and think about all the code you won’t have to write. 😊</p>
+                  <p>If you need us before then, you can reach us at support@btlagency.co.uk.</p>
+              </div> 
           </div>
-    
-        <div class="form-group">
-            <label for="Email"
-              class="form-label">Email</label>
-            <input type="text" name="email" id="Email" autocomplete="email" placeholder="Your email" class="form-input"></input>
-        </div>
-    
-        <div class="form-group">
-            <label for="Phone number"
-            class="form-label">Phone Number</label>
-            <input type="text" name="Phone number" id="Phone number" autocomplete="number" placeholder="+(44) 7939 123456" class="form-input"></input>
-        </div>
-    
-        <div class="form-group">
-            <label for="Assist"
-            class="form-label">What can we assist you with?</label>
-            <textarea type="text" name="Assist" id="Assist" autocomplete="message" placeholder="We're listening..." class="form-textarea"></textarea>
-        </div>
-    
-        <div class="dropdown">
-            <label for="checkbox"
-            class="form-label">With whom would you like to be in touch with?</label>
-            <form id="checkbox">
-              <select name="checkbox" id="dropbox">
-                <option value="...">...</option>
-                <option value="Tania">Tania</option>
-                <option value="Ben">Ben</option>
-                <option value="Levi">Levi</option>
-              </select>
-            </form>
-        </div>
-      </form>
-      <button class="form-submit" type="submit" id="submitBtn">Submit Form</button>
-      <!-- The Modal Box-->
-      <div class="modal hide">
-        <div class="modal-content"> 
-            <span class="close">&times;</span>
-            <p>Thanks for reaching out! ✋</p>
-            <p>I'll get back to you faster than you can say <b>"Kirkjubæjarklaustur"</b>!</p>
-        </div> 
-      </div>
-    </section>
+        </form>
+      </section>
     </main>
 
     <footer class="footer-container">
@@ -95,7 +99,7 @@
       </div>
     </footer>
 
-    
+    <script src="contact.js"></script>
     <script>
       let params = new URLSearchParams(document.location.search);
       let name = params.get("name");
@@ -109,5 +113,6 @@
             }
         }
     </script>
+
   </body>
 </html>
