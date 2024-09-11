@@ -31,33 +31,33 @@
             </p>
         </div>
     
-      <div class = "form-group-container">
+      <form class = "form-group-container">
           <div class = "form-group">
             <label for="name"
               class="form-label">Name</label>
-            <input type="text" name="name" id="name" placeholder="Your name" class="form-input"></input>
+            <input type="text" name="name" id="name" autocomplete="name" placeholder="Your name" class="form-input"></input>
           </div>
     
         <div class="form-group">
             <label for="Email"
               class="form-label">Email</label>
-            <input type="text" name="name" id="name" placeholder="Your email" class="form-input"></input>
+            <input type="text" name="email" id="Email" autocomplete="email" placeholder="Your email" class="form-input"></input>
         </div>
     
         <div class="form-group">
             <label for="Phone number"
             class="form-label">Phone Number</label>
-            <input type="text" name="name" id="name" placeholder="+(44) 7939 123456" class="form-input"></input>
+            <input type="text" name="Phone number" id="Phone number" autocomplete="number" placeholder="+(44) 7939 123456" class="form-input"></input>
         </div>
     
         <div class="form-group">
             <label for="Assist"
             class="form-label">What can we assist you with?</label>
-            <textarea type="text" name="name" id="name" placeholder="We're listening..." class="form-textarea"></textarea>
+            <textarea type="text" name="Assist" id="Assist" autocomplete="message" placeholder="We're listening..." class="form-textarea"></textarea>
         </div>
     
         <div class="dropdown">
-            <label for="Who?"
+            <label for="checkbox"
             class="form-label">With whom would you like to be in touch with?</label>
             <form id="checkbox">
               <select name="checkbox" id="dropbox">
@@ -68,9 +68,17 @@
               </select>
             </form>
         </div>
+      </form>
+      <button class="form-submit" type="submit" id="submitBtn">Submit Form</button>
+      <!-- The Modal Box-->
+      <div class="modal hide">
+        <div class="modal-content"> 
+            <span class="close">&times;</span>
+            <p>Thanks for reaching out! ✋</p>
+            <p>I'll get back to you faster than you can say <b>"Kirkjubæjarklaustur"</b>!</p>
+        </div> 
       </div>
-      <button class="form-submit" type="'submit">Submit Form</button>
-     </section>
+    </section>
     </main>
 
     <footer class="footer-container">
