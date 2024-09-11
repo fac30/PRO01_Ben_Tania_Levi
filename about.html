@@ -79,20 +79,22 @@
               const listItem = document.createElement('li');
 
               listItem.innerHTML = `
-                <h2>${person.name}</h2>
-                <img 
-                  width="200"
-                  height="200"
-                  src="${person.img}" 
-                  alt="${person.name} profile picture"
-                >
-                <div class="row">
-                  <h3>Job Title:</h3>
-                  <p>${person.position}</p>
+                <div class='grid-list'>
+                  <h2>${person.name}</h2>
+                  <img 
+                    width="200"
+                    height="200"
+                    src="${person.img}" 
+                    alt="${person.name} profile picture"
+                  >
+                  <div class="grid-list-row">
+                    <h3>Job Title:</h3>
+                    <p>${person.position}</p>
+                  </div>
+                  <h3>About</h3>
+                  <p>${person.about}</p>
+                  <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
                 </div>
-                <h3>About</h3>
-                <p>${person.about}</p>
-                <button onclick="window.location.href = 'contact-us/contact.html?name=' + encodeURIComponent('${person.name}');">Contact ${person.name}</button>
               `;
               grid.appendChild(listItem);
             });
