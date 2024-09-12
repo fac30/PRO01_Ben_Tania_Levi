@@ -36,7 +36,7 @@ header {
     text-align: center;
     width: 100%;
     height: 98px;
-    padding: 0 20px;
+    padding: 10px 20px;
 }
 
 header a {
@@ -81,6 +81,13 @@ button:hover {opacity: 0.6}
     flex-wrap: wrap;
     align-items: center;
 }
+/* On screens that are 600px wide or less, make the menu links stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .row {
+      flex-direction: column;
+    }
+  }
+
 
 /*home page*/
 .home-container {
@@ -147,11 +154,20 @@ button:hover {opacity: 0.6}
 ul {
     list-style-type: none;
 }
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+    .grid {
+      flex-direction: column;
+    }
+}
+
 .grid-list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding-top: 10px;
 }
 .grid-list > *:not(:last-child) {
     padding-bottom: 20px; /* Not Add bottom padding 20px to the last item */
@@ -187,6 +203,14 @@ ul {
 .footer-container > *:last-child {
     margin-right: 0; /* Remove right margin from the last item */
   }
+
+/* If the screen size is 600px wide or less, hide the element */
+@media screen and (max-width: 600px) {
+    div.address-footer {
+      display: none;
+    }
+  }
+
 footer p {
     color: #f8f1e2;
     /*text-align: center;*/
