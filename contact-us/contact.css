@@ -30,8 +30,10 @@ Black for text: #0e0c08
     color: #0e0c08;
 }
 
-.label {
+.form-label {
+    display: flex;
     justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .form-group-container {
@@ -89,9 +91,47 @@ Black for text: #0e0c08
     align-items: flex-start;
 }
 
-.form-label {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
+/* Modal Box*/
+.modal {
+    position: fixed; /* Stay in place */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    justify-content: center;
+    align-items: center;
 }
 
+.modal-content {
+    background-color: whitesmoke;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #afad8c;
+    width: 80%; 
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    color:#464c2f;
+}
+.modal-content p {
+    margin-bottom: 1rem;
+}
+.hide {
+	display: none;
+}
+/* The Close Button*/
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
