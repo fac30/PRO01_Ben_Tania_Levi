@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main 
-      
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -13,15 +13,16 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
-    - name: Add SSH Key and Set Permissions
+    - name: Create SSH Directory and Add SSH Key
       run: |
+        mkdir -p ~/.ssh  # Create the .ssh directory if it doesn't exist
         echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa  # Set the right permissions for the SSH key
 
     - name: Start SSH agent and add key
       run: |
         eval $(ssh-agent -s)
-        echo "${{ secrets.EC2_SSH_KEY }}" | tr -d '\r' | ssh-add - <<< "${{ secrets.EC2_SSH_PASSPHRASE }}"
+        ssh-add ~/.ssh/id_rsa
 
     - name: SSH into EC2 and Pull Latest Code
       run: |
