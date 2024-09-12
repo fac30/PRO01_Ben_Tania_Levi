@@ -16,7 +16,7 @@
         <a href="/index.html" aria-label="Home"><img id="logo" alt="agency logo" src="logo.png"></a>
       </div>     
       <nav>
-        <ul class="row">
+        <ul class="row links">
           <li><a href="/about.html">About Us</a></li>
           <li><a href="contact-us/contact.html">Contact</a></li>
         </ul>
@@ -34,7 +34,7 @@
         </div>
       </div>
 
-      <ul id="team-grid" class="grid column-lg">
+      <ul id="team-grid" class="grid">
         <!-- user grid here -->
       </ul>
     </main>
@@ -81,12 +81,14 @@
               listItem.innerHTML = `
                 <div class='grid-list'>
                   <h2>${person.name}</h2>
-                  <img 
-                    width="200"
-                    height="200"
-                    src="${person.img}" 
-                    alt="${person.name} profile picture"
-                  >
+                  <div class='img-container'>
+                    <img 
+                      width="200"
+                      height="200"
+                      src="${person.img}" 
+                      alt="${person.name} profile picture"
+                    >
+                  </div>
                   <div class="grid-list-row">
                     <h3>Job Title:</h3>
                     <p>${person.position}</p>
