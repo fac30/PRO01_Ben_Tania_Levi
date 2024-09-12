@@ -139,6 +139,16 @@ button:hover {opacity: 0.6}
 #text-emphasise {
     font-weight: 500;
 }
+.img-container {
+    display: inline-block; /* Ensure container adapts to image size */
+    padding-bottom: 20px; 
+}
+.img-container img {
+    display: block; /* Ensure the image takes up full width inside the container */
+    width: 200px;
+    height: 200px; /* Maintain the exact 200x200 dimensions */
+    border-radius: 50%;
+}
 
 .grid {
     display:flex;
@@ -156,7 +166,7 @@ ul {
 }
 
 /* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 750px) {
     .grid {
       flex-direction: column;
     }
@@ -179,8 +189,6 @@ ul {
     flex-wrap: wrap;
     align-items: center;
 }
-
-     
 
 /*footer*/
 .footer-container {

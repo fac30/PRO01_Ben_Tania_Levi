@@ -81,12 +81,14 @@
               listItem.innerHTML = `
                 <div class='grid-list'>
                   <h2>${person.name}</h2>
-                  <img 
-                    width="200"
-                    height="200"
-                    src="${person.img}" 
-                    alt="${person.name} profile picture"
-                  >
+                  <div class='img-container'>
+                    <img 
+                      width="200"
+                      height="200"
+                      src="${person.img}" 
+                      alt="${person.name} profile picture"
+                    >
+                  </div>
                   <div class="grid-list-row">
                     <h3>Job Title:</h3>
                     <p>${person.position}</p>
