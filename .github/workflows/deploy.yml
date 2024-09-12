@@ -13,21 +13,16 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@v2
 
-    - name: Install SSH Client
-      run: sudo apt-get install -y sshpass
+    - name: Add SSH Key and Set Permissions
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.EC2_SSH_KEY }}
 
-    - name: Copy files to EC2
-      env:
-        SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+    - name: SSH into EC2 and Pull Latest Code
       run: |
-        mkdir -p ~/.ssh
-        echo "${SSH_PRIVATE_KEY}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-
-        # Copy the website files to the EC2 instance using rsync over SSH
-        rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" ./ ec2-user@${{ secrets.EC2_HOST }}:${{ secrets.EC2_PATH }}
-      
-    - name: Restart Apache HTTPD on EC2
-      run: |
-        ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} "sudo systemctl restart httpd"
+        ssh -o StrictHostKeyChecking=no ec2-user@${{ secrets.EC2_HOST }} << 'EOF'
+          cd ${{ secrets.EC2_PATH }}
+          git pull origin main
+          sudo systemctl restart httpd
+        EOF
 
