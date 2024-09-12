@@ -134,6 +134,7 @@ button:hover {opacity: 0.6}
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    background-color:#B6CAD0;
 }
 .about-content > * {
     margin: 0 20px; /* Adds horizontal margin around each item */
