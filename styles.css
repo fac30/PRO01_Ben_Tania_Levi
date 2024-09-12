@@ -86,6 +86,11 @@ button:hover {opacity: 0.6}
     .row {
       flex-direction: column;
     }
+    .row .links {
+      flex-direction: row;
+
+      margin: 30px 0;
+    } 
   }
 
 
